@@ -1,0 +1,26 @@
+{
+  "name": "lisp",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "license": "MIT",
+  "dependencies": {
+    "ffi-napi": "^2.4.4",
+    "moo": "^0.5.0",
+    "treeify": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-upgrade": "^0.0.24",
+    "flow-bin": "^0.90.0"
+  },
+  "scripts": {
+    "dependencies:update": "babel-upgrade --write --install",
+    "clean": "rm -Rf ./lib",
+    "build": "flow check && babel src/ -d lib/",
+    "start": "node ./src/main.js",
+    "prepublish": "yarn run clean && yarn run build"
+  }
+}
